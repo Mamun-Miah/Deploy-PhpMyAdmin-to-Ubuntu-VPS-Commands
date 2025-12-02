@@ -1,0 +1,26 @@
+sudo apt update
+sudo apt upgrade -y
+sudo apt install mysql-server -y
+sudo systemctl start mysql
+sudo systemctl enable mysql
+sudo systemctl status mysql
+sudo mysql_secure_installation
+
+
+sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl -y
+##Press "No" to DB config
+sudo phpenmod mbstring
+
+
+sudo mysql -u root -p
+CREATE USER 'adminuser'@'localhost' IDENTIFIED BY 'StrongPass123!';
+GRANT ALL PRIVILEGES ON *.* TO 'adminuser'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EXIT;
+
+sudo systemctl restart apache2
+
+
+http://your_server_ip/phpmyadmin
+
+
